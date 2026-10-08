@@ -1,13 +1,25 @@
-# Reflex Haber — Düzeltilmiş paketler
+# Reflex Haber · Demo 6 · Yeni proje
 
-Orijinal pakette kurulum sonrası oluşan HTTP 500 hatası yerelde yeniden üretildi ve düzeltildi. Tarayıcı kurulumu ve migration/seeder yolunda 11 işlev testi geçti. Gerçek hosting sunucusuna dağıtım yapılmadı.
+Demo 6 referansının düzenine göre sıfırdan hazırlanmış PHP haber portalı ve yönetim paneli.
 
-- [Tam proje ZIP (28 MB)](downloads/reflex-haber-duzeltilmis-demo6.zip)
-- [Mevcut proje için düzeltme ZIP (48 KB)](downloads/reflex-haber-duzeltme-dosyalari.zip)
-- [Tam ZIP SHA-256](downloads/reflex-haber-duzeltilmis-demo6.sha256)
+**[Yeni proje ZIP’ini indir — 7,5 MB](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-demo6-sifirdan.zip)**
 
-Dosya sayfasında **Download raw file** düğmesini kullanın. Arşivler gerçek `.env`, gizli anahtar, test veritabanı veya çalışma önbelleği içermez.
+- [Kurulum adımları](KURULUM.md)
+- [Ana sayfa görünümü](previews/demo6-ana-sayfa.png)
+- [Mobil görünüm](previews/demo6-mobil.png)
+- [Yönetim paneli görünümü](previews/demo6-panel.png)
+- [ZIP SHA-256](downloads/reflex-haber-demo6-sifirdan.zip.sha256)
 
-PHP 8.3+ gerekir. Mevcut `.env` ve yüklenen resimleri koruyun; dosyaları proje köküne uyguladıktan sonra `/kurulum.php` üzerinden onarımı çalıştırın. Başarılı onarımın ardından `kurulum.php` ve `public/kurulum.php` dosyalarını silin. Ayrıntılı kurulum ve test notları ZIP içindeki `README.md` dosyasındadır.
+## Kurulum
 
-Ana sayfaya haber kartları, manşet geçişleri ve mobil menü eklendi. Demo 6 referansı erişim engeli nedeniyle görüntülenemediği için birebir görsel karşılaştırma yapılmadı.
+PHP **8.1+**, PDO MySQL, DOM, Fileinfo ve Mbstring gerekir. Dosyaları sunucuda yeni ve boş bir klasöre açın. Hosting panelinden MySQL veritabanı ve yetkili kullanıcı oluşturun. Tarayıcıda bu klasördeki **`kurulum.php`** adresini açıp bağlantı bilgilerini ve kendi yönetici e-posta/şifrenizi girin.
+
+Panel adresi **`panel.php`**. Tasarımın örnek haberlerle dolu görünmesi için kurulumda örnek içerik seçeneğini açık bırakın. Örnek haber ve yazarlar daha sonra panelden kaldırılabilir.
+
+Bu yeni proje `.env`, Composer veya `vendor` kullanmaz. ZIP’te gerçek sunucu şifreleri, kurulu veritabanı, oturumlar veya günlükler yoktur. Önceki arşivler `downloads` dizininde korunmuştur; güncel kurulum yukarıdaki **sifirdan** paketidir.
+
+## Doğrulama
+
+Yerel PHP 8.4.24/MariaDB 11.8 ve alt klasörde SQLite kurulumu test edildi. Haber işlemleri, görsel ve galeri yükleme, taslak gizliliği, otomatik planlı yayın, yorum onayı ve editör yetkileri doğrulandı. Chromium ile 320–1440 piksel genişliklerde görünüm ve yayınlama işlemleri kontrol edildi. Teslim ZIP’i ayrıca açılıp yeniden kurulup test edildi. Canlı hosting sunucusuna dağıtım yapılmadı.
+
+Referans: https://esenhaber.cizoglubilisim.com/demo6/
