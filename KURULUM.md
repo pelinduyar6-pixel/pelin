@@ -1,4 +1,4 @@
-# Reflex Haber Pro · 4 tema · 3.1.0
+# Reflex Haber Pro · 4 tema · 3.2.0
 
 PHP 8.1+ ile çalışan haber sitesi ve yönetim merkezi. Composer, Node, Laravel veya `vendor` kurulumu gerekmez. Türkçe arayüz, Türkiye saat dilimi ve MySQL/MariaDB desteği bulunur. SQLite küçük kurulumlar ve yerel denemeler için kullanılabilir.
 
@@ -131,7 +131,7 @@ Yerel PHP 8.4, MariaDB 11.8 ve SQLite üzerinde kurulum/yayın/medya/yetki/SEO/k
 
 OpenAI için anahtar yokken hata davranışı, Responses API istek biçimi, örnek yanıtların ayrıştırılması ve hatalı yanıtlar yerel testlerle doğrulanmıştır. **Gerçek OpenAI hesabıyla çağrı yapılmadı**; anahtarınızı girdikten sonra hesabınızın kota/model izinleriyle deneyin. Canlı hostinginize dağıtım yapılmamıştır. Apache/Nginx erişim kuralları yerel PHP geliştirme sunucusunda çalıştırılmamıştır. RSS aktarımı ve zamanlama örnek RSS/Atom yanıtlarıyla test edilmiştir; bulut ortamının dış DNS kısıtı nedeniyle canlı RSS adresine bağlantı doğrulanamamıştır. Hostinginizde Şimdi çalıştır ile kontrol edin.
 
-`tests/smoke.py`, `tests/pro-http.py`, `tests/pro-integrations.php`, `tests/command-http.py`, `tests/command-integrations.php`, `tests/browser-pro.cjs`, `tests/browser-command.cjs` yalnızca silinebilir yerel kurulumlarda çalıştırılmalıdır. Şifreler ortam değişkenlerinden alınır. Görüntülenme ölçümü Pro kurulumundan başlar, panel kullanıcıları sayılmaz. Bot/önizleme istekleri ayrıca filtrelenmediği için bu metrik tekil kullanıcı analitiği değildir. Hava ve şehir ayarları Üst Bant ekranındadır. Piyasalar ekranı elle giriş veya saatlik veri kaynağı seçimi sunar.
+`tests/smoke.py`, `tests/pro-http.py`, `tests/pro-integrations.php`, `tests/command-http.py`, `tests/command-integrations.php`, `tests/browser-pro.cjs`, `tests/browser-command.cjs` yalnızca silinebilir yerel kurulumlarda çalıştırılmalıdır. Şifreler ortam değişkenlerinden alınır. Görüntülenme ölçümü Pro kurulumundan başlar, panel kullanıcıları sayılmaz. Bot/önizleme istekleri ayrıca filtrelenmediği için bu metrik tekil kullanıcı analitiği değildir. Hava ve şehir ayarları Üst Bant ekranındadır. Piyasalar ekranı elle giriş, genel piyasa, TCMB veya özel JSON kaynağı ve 5–120 dakika yenileme seçimi sunar.
 
 Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarısızlığı ve başarılı yeniden deneme için gerçek yerel MySQL/SQLite üzerinde test edilmiştir. Mevcut kurulum yeniden bağlandığında tüm tablo kayıtlarının ve parola hash'lerinin aynı kaldığı doğrulanmıştır. `tests/installer.py` yalnızca kendisine ayrılmış silinebilir yerel test kurulumunda çalıştırılır.
 
@@ -142,9 +142,9 @@ Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarı
 ## Pro 3.1 editör ve tasarım güncellemesi
 
 - Dört temada büyük yuvarlak portrelerle tek sıra yazar kaydırıcısı. Son yayımlanan köşe yazısı gösterilir; yazısı olmayan yazarın profil arşivine bağlantı verilir. Örnek kurulumda köşe yazıları örnek olarak işaretlenir.
-- İnce mavi Piyasalar bandı: beş araç, değer ve varsa gerçek değişim yüzdesi. Verisi olmayan araçta çizgi gösterilir; örnek ekran fiyatları canlı veri olarak eklenmez. Panel → Piyasalar'da elle giriş, TCMB + CoinGecko veya kendi JSON API’nizi seçin. Kaydedip **Otomatik kaynağı şimdi güncelle / test et** düğmesine basın. Altın ve BIST için kendi kaynağınız veya elle giriş gerekir.
-- Genel kategori blokları solda büyük haber, sağda 2×2 dört haber kullanır. Spor/puan tablosu, magazin, teknoloji ve sağlık özel düzenleri korunur. Menüde tüm kategoriler görünür; sığmayan başlıklar yatay kaydırılır.
-- Varsayılan manşet süresi 3 saniye, panelden 2–20 saniye ayarlanabilir. Eski varsayılan 5 saniye güncellemede 3 saniyeye iner; diğer özel süreler korunur. Sarı/turuncu son dakika vurgusu ve üst bant etiketi daha belirgindir. Hareket azaltma tercihi ve durdurma düğmeleri desteklenir.
+- İnce mavi Piyasalar bandı: beş araç, değer ve varsa gerçek değişim yüzdesi. Verisi olmayan araçta çizgi gösterilir; örnek ekran fiyatları canlı veri olarak eklenmez. Panel → Piyasalar'da elle giriş, TCMB + CoinGecko veya kendi JSON API’nizi seçin. Kaydedip **Otomatik kaynağı şimdi güncelle / test et** düğmesine basın. 3.2 otomatik Sözcü + NTV seçeneği altın/BIST dahil beş kalemi okur.
+- Kategori blokları 3.2’de seçilen temaya/görünüme göre düzenlenir. Spor/puan tablosu, magazin, teknoloji ve sağlık özel düzenleri korunur. Menüde tüm kategoriler görünür; sığmayan başlıklar yatay kaydırılır.
+- Varsayılan manşet süresi 3 saniye, panelden 2–20 saniye ayarlanabilir. Eski varsayılan 5 saniye güncellemede 3 saniyeye iner; diğer özel süreler korunur. 3.2’de manşetteki dikey son dakika şeridi kaldırılmıştır; üst kayan bant etiketi belirgindir. Hareket azaltma tercihi ve durdurma düğmeleri desteklenir.
 - Haber editöründe SEO halkası, ilerleme çubuğu ve kontrol listesi. **Otomatik SEO Doldur**, boş başlık/açıklama/özet/slug alanlarını mevcut metinden tamamlar; elle girilen alanları değiştirmez. Kayıt sırasında boş alanları tamamlama seçeneği ayrıca saklanır. Odak kelime ve içerik niteliği editörün kontrolündedir; skor sıralama garantisi değildir. **OpenAI ile AI + SEO düzenle** merkezi API anahtarını kullanır ve önerileri önce önizler.
 - MP4/WebM yükleme veya YouTube bağlantısına ek olarak PDF (20 MB) yüklenebilir/kütüphaneden seçilebilir. Belge haber altında açma/indirme bağlantısıyla görünür. YouTube/Vimeo/Dailymotion iframe kodları ayrı embed alanında desteklenir; kaynak adresi doğrulanır ve iframe güvenli özniteliklerle yeniden oluşturulur. Haber gövdesi ham script/iframe çalıştırmaz. Kullanılan PDF kütüphaneden silinemez.
 - Türkiye Gündem Merkezi: düzenlenebilir TRT, NTV, CNN Türk, Sözcü kaynakları; seçim kutuları; tüm kaynak başlıkları ve ayrıca ortak konular filtresi. Tek kaynak haberleri de listelenir. AI + SEO hazırlama merkezi OpenAI ayarlarını kullanır, metin editörde kontrol edilir; doğrudan arka planda yayımlanmaz.
@@ -154,3 +154,11 @@ Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarı
 TRT ve NTV akışları geliştirme ortamından HTTP 200 yanıtıyla okunmuştur. CNN Türk ve Sözcü resmi RSS akışları da ağ ayarları güncellendikten sonra okunmuş, dört kaynaktan 20’şer gerçek kayıt ayrıştırılmıştır. PHP’nin DNS denetimi bu bulut makinesinde sonuç vermediği için uygulamanın sunucu bağlantısını hostinginizde test edin; koruma mekanizması kapatılmamıştır. Gerçek OpenAI/ücretli ajans/lig sağlayıcısı anahtarları bu pakette bulunmaz; sağlayıcı akışları yerel test belgeleriyle doğrulanmıştır.
 
 Yeni testler: `tests/editorial-integrations.php`, `tests/editorial-http.py`, `tests/browser-editorial.cjs`. Sadece geçici yerel kurulumlarda çalıştırın. Kurulum şeması hâlâ 22 tablodur; haber ve kaynak tablolarının yeni sütunları uygulama açılırken otomatik eklenir.
+
+## Pro 3.2 yerleşim ve otomatik veri güncellemesi
+
+Ayrıntılı yükleme ve kullanım: **GUNCELLEME-3-2.md**. Pro 3.1’de küçük güncelleme ZIP’ini; daha eski PHP sürümünde tam ZIP’i kullanın. Kurulu siteye SQL’i tekrar içe aktarmayın.
+
+Piyasalar yazarların altına taşındı; Sözcü fiyatları/NTV BIST ve anahtarsız NTV Süper Lig kaynağı eklendi. Kategoriler panelden seçilir, sıralanır ve görünüm atanır; dört temada otomatik düzen değişir. Magazin iki büyük + dört küçük kart ve burç bandı, teknoloji koyu vitrin kullanır. Manşetten dikey Son Dakika şeridi kaldırıldı. Footer’da öne çıkan haberler, sosyal bant ve dört sütun vardır. Haber listesi konum düğmeleri, SEO, filtre ve toplu işlemler; haber editörü ve reklam yönetimi yeni yerleşimlerle güncellendi.
+
+Gerçek piyasa ve 18 takımlı NTV yanıtları okunup ayrıştırıldı. PHP doğrudan DNS denetimi bulutta kısıtlıdır; hostingde bağlantıları test edin. Yerel SQLite/MySQL toplu işlem, yetki/CSRF, veri koruma ve dört temada 320–1440 piksel kontrolleri geçti. Yeni testler: tests/layout-integrations.php, tests/layout-http.py ve tests/browser-layout.cjs; yalnızca silinebilir yerel kurulumlar içindir.
