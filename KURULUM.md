@@ -19,6 +19,12 @@ Ana alan adında kurulum yapacaksanız dosyaları `public_html` içine açın ve
 
 ## Veritabanı hataları ve yarım kurulum
 
+### phpMyAdmin ile SQL içe aktarma
+
+Paketin `database/reflex-haber-pro.sql` dosyası 13 tablonun tüm alanlarını ve indekslerini içerir. phpMyAdmin'de kendi veritabanınızı seçin → **İçe aktar** → SQL dosyasını seçin → **Git/Uygula**. Sonra `/kurulum.php` sayfasında aynı veritabanı bilgileriyle yönetici hesabınızı ve isterseniz örnek haberleri oluşturun. Kurulum formu normalde tabloları zaten otomatik oluşturur; SQL önceden içe aktarılmışsa mevcut tablo yapısını kullanır.
+
+SQL dosyası kullanıcı/parola, API anahtarı veya örnek haber içermez. CREATE TABLE IF NOT EXISTS kullanır; kayıt silmez ve mevcut `rh6_` tablolarını yeni sürüme dönüştürmez. Güncelleme veya kayıp ayar dosyası için aşağıdaki güncelleme/yeniden bağlama yöntemini kullanın. İçe aktarmadan önce yedek alın. SQL içe aktarma 1044/1045 MySQL erişim sorunlarını çözmez; kullanıcı yetkisi ve şifre hosting panelinde düzeltilmelidir. SQL dosyasını web sitesinin herkese açık köküne yüklemeniz gerekmez.
+
 9 Ekim kurulum düzeltmesi, bağlantı ve kayıt hatalarını ayrı gösterir; genel hata mesajı yerine güvenli hata kodunu verir. Şifre veya ham PDO hata mesajı ekrana/günlüğe yazılmaz.
 
 - **1045:** MySQL kullanıcı adı/şifre ile girişi reddeder. Hosting → MySQL Veritabanları bölümünden kullanıcı şifresini kontrol edin veya yeniden belirleyin. Kurulumda hesap ön ekiyle tam kullanıcı adını ve bu şifreyi girin. Panel yönetici şifresi ayrı bir alandır.
