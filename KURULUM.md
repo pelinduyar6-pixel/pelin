@@ -9,12 +9,27 @@ PHP 8.1+ ile çalışan haber sitesi ve yönetim merkezi. Composer, Node, Larave
 3. Hosting panelinde MySQL veritabanı ve kullanıcı oluşturun; kullanıcıya veritabanı yetkilerini verin. Mevcut veritabanınızı da kullanabilirsiniz: uygulama **rh6_** tablolarını kullanır, diğer isimli tabloları değiştirmez. Daha önce oluşturulmuş rh6_ tabloları varsa aşağıdaki güncelleme yöntemini kullanın.
 4. `https://alanadiniz.com/haber-yeni/kurulum.php` adresini açın. Site adresi alanına aynı klasörün adresini, sonunda `/kurulum.php` olmadan girin.
 5. Veritabanı sunucusu, adı, kullanıcı adı ve şifresini girin. Hosting başka bilgi vermediyse sunucu `localhost`, port `3306` olur. Hesap ön ekleri dahil tam veritabanı/kullanıcı adlarını kullanın.
+   **Veritabanı bağlantısını test et** düğmesiyle kontrol edebilirsiniz; bu kontrol tabloları veya yönetici hesabını oluşturmaz. Güvenlik için şifre alanları cevapta boşalır, kurulum için tekrar girin.
 6. Yönetici e-postasını ve en az 12 karakterli şifresini **siz belirleyin**. Tasarımı dolu görmek için örnek içerikleri ekleyebilirsiniz. Kurulumu tamamlayın.
 7. Site: `/haber-yeni/` · Panel: `/haber-yeni/panel.php`. Kurulumda belirlediğiniz bilgilerle giriş yapın.
 
 Ana alan adında kurulum yapacaksanız dosyaları `public_html` içine açın ve adreslerde `/haber-yeni` kullanmayın. Mevcut siteyi değiştirmeden önce yeni klasörde kontrol edin. Varsayılan yönetici şifresi yoktur. Gerçek `.env`, veritabanı bilgileri ve API anahtarı ZIP içinde bulunmaz.
 
 `storage`, `storage/sessions`, `storage/logs`, `uploads` PHP tarafından yazılabilir olmalı. Hosting hesabına uygun 755/775 izinlerini kullanın. Nginx kullanıyorsanız **NGINX.md** dosyasındaki erişim kurallarını uygulayın.
+
+## Veritabanı hataları ve yarım kurulum
+
+9 Ekim kurulum düzeltmesi, bağlantı ve kayıt hatalarını ayrı gösterir; genel hata mesajı yerine güvenli hata kodunu verir. Şifre veya ham PDO hata mesajı ekrana/günlüğe yazılmaz.
+
+- **1045:** MySQL kullanıcı adı/şifre ile girişi reddeder. Hosting → MySQL Veritabanları bölümünden kullanıcı şifresini kontrol edin veya yeniden belirleyin. Kurulumda hesap ön ekiyle tam kullanıcı adını ve bu şifreyi girin. Panel yönetici şifresi ayrı bir alandır.
+- **1044:** Kullanıcının seçilen veritabanına erişimi yoktur. Hosting → Veritabanına Kullanıcı Ekle bölümünde doğru kullanıcı ve veritabanını eşleyip tüm veritabanı yetkilerini verin.
+- **1142:** Bağlantı kurulmuştur ancak tablo oluşturma/değiştirme gibi işlem yetkisi yoktur. İlgili veritabanı yetkilerini tamamlayın.
+- **1049:** Veritabanı adı bulunamıyor. Hosting panelindeki adı hesap ön ekiyle tam kullanın.
+- **2002/2003:** MySQL sunucusuna ulaşılamıyor. Hostingin verdiği sunucu/port/soket bilgisini doğrulayın.
+
+`storage/site.php` mevcutsa yeniden kurulum yapmayın; normal güncelleme yöntemini uygulayın. Bu dosya kaybolmuş fakat `rh6_` tablolarında hesaplar/haberler duruyorsa: yedek alın, doğru veritabanı bilgileri ile **mevcut** yönetici e-postasını ve şifresini girip **Mevcut kurulumu bağla** düğmesine basın. Bu işlem yeni kullanıcı/örnek haber oluşturmaz; yönetici şifresi doğrulanmadan bağlanmaz. Unutulmuş şifreyi sıfırlamaz. Diğer yazılımların veritabanını otomatik dönüştürmez.
+
+Yeni kurulumda ayar dosyası kaydedilemezse o denemedeki hesap/haber kayıtları geri alınır; geçici parola dosyası temizlenir. Kurulum kilidi bırakılıncaya kadar site istekleri kısa süreli 503 alır. Disk/sunucu sorunu düzelince aynı kurulum tekrar denenebilir. **Tablolarınızı veya veritabanınızı silmeyin.**
 
 ## Daha önceki “Demo 6 sıfırdan” sürümünü güncelleme
 
@@ -93,6 +108,8 @@ Yerel PHP 8.4, MariaDB 11.8 ve SQLite üzerinde kurulum/yayın/medya/yetki/SEO/k
 OpenAI için anahtar yokken hata davranışı, Responses API istek biçimi, örnek yanıtların ayrıştırılması ve hatalı yanıtlar yerel testlerle doğrulanmıştır. **Gerçek OpenAI hesabıyla çağrı yapılmadı**; anahtarınızı girdikten sonra hesabınızın kota/model izinleriyle deneyin. Canlı hostinginize dağıtım yapılmamıştır. Apache/Nginx erişim kuralları yerel PHP geliştirme sunucusunda çalıştırılmamıştır. RSS aktarımı ve zamanlama örnek RSS/Atom yanıtlarıyla test edilmiştir; bulut ortamının dış DNS kısıtı nedeniyle canlı RSS adresine bağlantı doğrulanamamıştır. Hostinginizde Şimdi çalıştır ile kontrol edin.
 
 `tests/smoke.py`, `tests/pro-http.py`, `tests/pro-integrations.php`, `tests/browser-pro.cjs` yalnızca silinebilir yerel kurulumlarda çalıştırılmalıdır. Şifreler ortam değişkenlerinden alınır. Görüntülenme ölçümü Pro kurulumundan başlar, panel kullanıcıları sayılmaz. Bot/önizleme istekleri ayrıca filtrelenmediği için bu metrik tekil kullanıcı analitiği değildir. Hava ve piyasa değerleri Genel Ayarlar'dan elle güncellenir.
+
+Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarısızlığı ve başarılı yeniden deneme için gerçek yerel MySQL/SQLite üzerinde test edilmiştir. Mevcut kurulum yeniden bağlandığında tüm tablo kayıtlarının ve parola hash'lerinin aynı kaldığı doğrulanmıştır. `tests/installer.py` yalnızca kendisine ayrılmış silinebilir yerel test kurulumunda çalıştırılır.
 
 500/503 için PHP sürümü/uzantılar, hosting PHP hata günlüğü, veritabanı bilgileri ve yazma izinlerini kontrol edin. `storage/logs/app.log` hata sınıfını ve kod konumunu tutar; parola/anahtar yazmaz. Büyük dosya sınırı aşılırsa 413 mesajı verilir.
 

@@ -4,6 +4,8 @@ Türkçe haber sitesi ve yönetim merkezi. PHP 8.1+, MySQL/MariaDB; küçük den
 
 **[Tam Pro paketi ZIP — yaklaşık 8 MB](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-4-tema.zip)**
 
+**[9 Ekim kurulum düzeltmesi — küçük ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-kurulum-duzeltmesi.zip)** · [Hata kodları ve uygulama adımları](KURULUM-DUZELTMESI.md)
+
 **[Kurulum ve mevcut PHP sürümünü güncelleme](KURULUM.md)** · [Nginx ayarları](NGINX.md) · [SHA-256](downloads/reflex-haber-pro-4-tema.sha256)
 
 ## Dört tema, tek içerik sistemi
