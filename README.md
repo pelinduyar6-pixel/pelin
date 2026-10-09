@@ -1,14 +1,14 @@
-# Reflex Haber Pro 3.0 · 4 Tema
+# Reflex Haber Pro 3.1 · 4 Tema
 
 Türkçe haber sitesi ve yönetim merkezi. PHP 8.1+, MySQL/MariaDB; küçük denemeler için SQLite. Composer veya Node kurulumu gerekmez.
 
 **[Tam Pro paketi ZIP — yaklaşık 8 MB](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-4-tema.zip)**
 
-**[Pro 2.x sürümünü 3.0’a güncelle — küçük ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-guncelleme.zip)**
+**[Pro 3.0 sürümünü 3.1’e güncelle — küçük ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-1-guncelleme.zip)**
 
 **[phpMyAdmin SQL paketi — ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-sql.zip)** · [SQL dosyası](downloads/reflex-haber-pro.sql) · [SQL içe aktarma adımları](SQL-KURULUM.md)
 
-3.0 tam paket kurulum düzeltmesini zaten içerir. Aşağıdaki eski küçük kurulum düzeltmesini 3.0 dosyalarının üzerine açmayın.
+3.1 tam paket kurulum düzeltmesini zaten içerir. Aşağıdaki eski küçük kurulum düzeltmesini 3.1 dosyalarının üzerine açmayın.
 
 **[9 Ekim kurulum düzeltmesi — küçük ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-kurulum-duzeltmesi.zip)** · [Hata kodları ve uygulama adımları](KURULUM-DUZELTMESI.md)
 
@@ -39,12 +39,12 @@ Temalar panelden seçilir; haberler, kullanıcılar ve görseller korunur. Refer
 - Modüller: anket/oylar, fal, biyografi, ilanlar, röportaj, vefat, e-dergi bağlantısı, firma rehberi, makaleler, yazarlar ve üye rehberi.
 - Google Merkezi, ayrı sitemap adresleri, editör performansı ve iletişim formundan panele gelen mesajlar.
 - Foto/video vitrinleri, kategori manşetleri, haber kartları, sağ son haberler ve sayfalama.
-- Otomatik manşet geçişi, ayarlanabilir süre, duraklatma ve yumuşak sarı Son Dakika animasyonu.
+- Otomatik manşet geçişi, ayarlanabilir süre, duraklatma ve belirgin sarı/turuncu Son Dakika animasyonu.
 - Profesyonel haber merkezi: gerçek görüntülenme/kayıt sayıları, yayın takvimi, SEO dağılımı ve canlı yenileme.
-- Haber taslak/yayın/planlama, zengin editör, medya kütüphanesi, foto galeri, YouTube veya MP4/WebM yükleme.
+- Haber taslak/yayın/planlama, zengin editör, medya kütüphanesi, foto galeri, YouTube veya MP4/WebM yükleme, PDF belge ve doğrulanmış video embed.
 - Haber altında emoji tepkileri, sosyal paylaşım, yazdırma, yazı boyutu, sesli okuma ve okuma ilerlemesi.
 - OpenAI API anahtarıyla önizlemeli SEO önerileri; yazarken güncellenen içerik kontrol puanı.
-- RSS/Atom kaynak seçimi, çalışma aralığı, taslak/yayın tercihi, tekrarları atlama ve cron.
+- RSS/Atom veya kategori/haber URL’si kaynak seçimi, çalışma aralığı, taslak/yayın tercihi, tekrarları atlama ve cron.
 - Ana logo, ayrı footer logosu, renk/genişlik/tema ayarları ve ana sayfa öğelerinin sırası/görünürlüğü.
 - 21 reklam konumu; kod veya görsel, mobil/masaüstü seçimi, tarih ve öncelik.
 - Head, body başlangıcı, body sonu, footer özel kod alanları; yalnızca yönetici erişimi.
@@ -68,3 +68,15 @@ OpenAI anahtarınızı **API Merkezi**’ne bir kez girersiniz. Botlar ve otomat
 Yerel MySQL/SQLite kurulum ve güncelleme, yayın/medya/yetki/SEO testleri, dört temanın mobil görünümü ve otomatik geçişleri doğrulanmıştır. OpenAI yanıtları ve RSS aktarımı yerel örnek yanıtlarla test edilmiştir; canlı API hesabı ve hosting bağlantıları ayrıca denenmelidir. Canlı sunucuya dağıtım yapılmadı. SEO kuralları uygulanır; sıralama/Google News kabul garantisi verilmez.
 
 Önceki paket [Demo 6 sıfırdan sürümü](downloads/reflex-haber-demo6-sifirdan.zip) olarak korunmuştur; yeni kurulum için yukarıdaki Pro paketini kullanın.
+
+## 3.1 düzenlemeleri
+
+[Pro 3.0’dan güncelleme adımları](GUNCELLEME-3-1.md): mevcut `.env`, `storage` ve `uploads` verilerini koruyun; SQL’i tekrar içe aktarmayın. Pro 2.x veya eski sürümlerde tam ZIP’i kullanın.
+
+Yazarlar tek sıra portre kaydırıcısı, son makale başlıkları ve ileri/geri düğmeleriyle yenilendi. Piyasalar ince mavi banda dönüştü. Genel kategori vitrinleri büyük haber + dört kart düzenini kullanır. Varsayılan manşet süresi 3 saniyedir; güçlü son dakika vurgusu hareket azaltma tercihini destekler.
+
+Haber editöründe canlı SEO halkası ve ilerleme çubuğu, boş SEO alanlarını doldurma ve kayıt sırasında tamamlama seçeneği vardır. PDF yükleme/kütüphane seçimi ve YouTube/Vimeo/Dailymotion embed ekleme desteklenir. Türkiye Gündem Merkezi TRT, NTV, CNN Türk ve Sözcü seçimlerini ve tek kaynak haberlerini de gösterir. Botlarda özel kaynak URL’si, RSS keşfi, HTML haber okuma, tam metin alma ve bağlantı testi bulunur.
+
+[Yeni yazar görünümü](previews/pro/yazarlar-orta.png) · [İnce piyasalar bandı](previews/pro/piyasalar-bant.png) · [SEO editörü](previews/pro/haber-seo.png) · [Kategori düzeni](previews/pro/kategori-blok.png)
+
+Yerel SQLite/MySQL kurulumları, Pro 3.0’dan güncellemede veri koruma, PDF/embed/SEO güvenliği ve dört tema için 320–1440 piksel kontrolleri geçti. TRT/NTV/CNN Türk/Sözcü resmi RSS akışlarından 20’şer gerçek kayıt ayrıştırıldı. PHP’nin DNS denetimi bulut makinesinde çözümlenemedi; uygulama bağlantıları hostingde test edilmeli. Canlı sunucuya yükleme yapılmadı.

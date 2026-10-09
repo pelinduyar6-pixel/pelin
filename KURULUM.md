@@ -1,4 +1,4 @@
-# Reflex Haber Pro · 4 tema · 3.0.0
+# Reflex Haber Pro · 4 tema · 3.1.0
 
 PHP 8.1+ ile çalışan haber sitesi ve yönetim merkezi. Composer, Node, Laravel veya `vendor` kurulumu gerekmez. Türkçe arayüz, Türkiye saat dilimi ve MySQL/MariaDB desteği bulunur. SQLite küçük kurulumlar ve yerel denemeler için kullanılabilir.
 
@@ -39,7 +39,7 @@ Yeni kurulumda ayar dosyası kaydedilemezse o denemedeki hesap/haber kayıtları
 
 ## Daha önceki PHP / Pro sürümünü güncelleme
 
-Bu yöntem daha önce gönderilen Demo 6 PHP sürümü ve Pro 2.x kurulumları içindir. Pro 3.0 küçük güncelleme ZIP’i yalnızca Pro 2.x sürümünden değişen uygulama dosyalarını içerir. Daha eski Demo 6 PHP sürümü veya sürümü belirsiz mevcut PHP kurulumu için tam ZIP kullanın; tam ZIP yeni kurulumda da kullanılabilir.
+Bu yöntem daha önce gönderilen Demo 6 PHP sürümü ve Pro 2.x kurulumları içindir. Pro 3.1 küçük güncelleme ZIP’i yalnızca Pro 3.0 sürümünden değişen uygulama dosyalarını içerir. Pro 2.x veya daha eski sürümlerde tam ZIP kullanın. Daha eski Demo 6 PHP sürümü veya sürümü belirsiz mevcut PHP kurulumu için tam ZIP kullanın; tam ZIP yeni kurulumda da kullanılabilir.
 
 1. Veritabanınızın SQL yedeğini alın. `uploads` klasörünü ve `storage/site.php` dosyasını bilgisayarınıza yedekleyin. Varsa `storage/integrations.php` dosyasını da koruyun.
 2. Pro ZIP'ini mevcut projenin klasörüne açın; uygulama dosyalarının üzerine yazın. **Mevcut `storage/site.php`, `storage/integrations.php` ve uploads içeriğini silmeyin.** Paket bu özel dosyaları içermez.
@@ -138,3 +138,19 @@ Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarı
 500/503 için PHP sürümü/uzantılar, hosting PHP hata günlüğü, veritabanı bilgileri ve yazma izinlerini kontrol edin. `storage/logs/app.log` hata sınıfını ve kod konumunu tutar; parola/anahtar yazmaz. Büyük dosya sınırı aşılırsa 413 mesajı verilir.
 
 Örnek görsellerin kaynakları `assets/v6/demo/SOURCES.txt` içindedir; bunlar referans sitenin açık demo görselleridir. Örnek yazılar gerçek haber iddiası taşımaz. `reflex-video-demo.mp4` bu proje için oluşturulmuş tanıtım/test klibidir. Roboto lisansı `assets/v6/fonts/LICENSE` dosyasındadır. Yayına geçerken örnekleri kendi lisanslı içeriklerinizle değiştirin.
+
+## Pro 3.1 editör ve tasarım güncellemesi
+
+- Dört temada büyük yuvarlak portrelerle tek sıra yazar kaydırıcısı. Son yayımlanan köşe yazısı gösterilir; yazısı olmayan yazarın profil arşivine bağlantı verilir. Örnek kurulumda köşe yazıları örnek olarak işaretlenir.
+- İnce mavi Piyasalar bandı: beş araç, değer ve varsa gerçek değişim yüzdesi. Verisi olmayan araçta çizgi gösterilir; örnek ekran fiyatları canlı veri olarak eklenmez. Panel → Piyasalar'da elle giriş, TCMB + CoinGecko veya kendi JSON API’nizi seçin. Kaydedip **Otomatik kaynağı şimdi güncelle / test et** düğmesine basın. Altın ve BIST için kendi kaynağınız veya elle giriş gerekir.
+- Genel kategori blokları solda büyük haber, sağda 2×2 dört haber kullanır. Spor/puan tablosu, magazin, teknoloji ve sağlık özel düzenleri korunur. Menüde tüm kategoriler görünür; sığmayan başlıklar yatay kaydırılır.
+- Varsayılan manşet süresi 3 saniye, panelden 2–20 saniye ayarlanabilir. Eski varsayılan 5 saniye güncellemede 3 saniyeye iner; diğer özel süreler korunur. Sarı/turuncu son dakika vurgusu ve üst bant etiketi daha belirgindir. Hareket azaltma tercihi ve durdurma düğmeleri desteklenir.
+- Haber editöründe SEO halkası, ilerleme çubuğu ve kontrol listesi. **Otomatik SEO Doldur**, boş başlık/açıklama/özet/slug alanlarını mevcut metinden tamamlar; elle girilen alanları değiştirmez. Kayıt sırasında boş alanları tamamlama seçeneği ayrıca saklanır. Odak kelime ve içerik niteliği editörün kontrolündedir; skor sıralama garantisi değildir. **OpenAI ile AI + SEO düzenle** merkezi API anahtarını kullanır ve önerileri önce önizler.
+- MP4/WebM yükleme veya YouTube bağlantısına ek olarak PDF (20 MB) yüklenebilir/kütüphaneden seçilebilir. Belge haber altında açma/indirme bağlantısıyla görünür. YouTube/Vimeo/Dailymotion iframe kodları ayrı embed alanında desteklenir; kaynak adresi doğrulanır ve iframe güvenli özniteliklerle yeniden oluşturulur. Haber gövdesi ham script/iframe çalıştırmaz. Kullanılan PDF kütüphaneden silinemez.
+- Türkiye Gündem Merkezi: düzenlenebilir TRT, NTV, CNN Türk, Sözcü kaynakları; seçim kutuları; tüm kaynak başlıkları ve ayrıca ortak konular filtresi. Tek kaynak haberleri de listelenir. AI + SEO hazırlama merkezi OpenAI ayarlarını kullanır, metin editörde kontrol edilir; doğrudan arka planda yayımlanmaz.
+- Haber Botları: kendi RSS/Atom, kategori veya tek haber URL'nizi girin. Otomatik biçim RSS keşfeder veya sunucudaki HTML haber başlıklarını okur. Tam metin seçeneği görev başına ilk 5 haber sayfasını da kontrol eder. JavaScript ile sonradan yüklenen, ücretli veya giriş isteyen sayfalar bu okuyucuda desteklenmez. Ajans abonelikleri ayrı Ajans Botları ekranında yönetilir.
+- Kaynağı kaydedip **Bağlantıyı test et**, ardından **Şimdi çalıştır** kullanın. Zamanlı haber alma için hosting cron görevini kurun; gündem paneli açıkken 30 dakikada bir tarama ayrıca yapılır. Gündem seçimi otomatik botun aktif/pasif ayarından bağımsızdır.
+
+TRT ve NTV akışları geliştirme ortamından HTTP 200 yanıtıyla okunmuştur. CNN Türk ve Sözcü resmi RSS akışları da ağ ayarları güncellendikten sonra okunmuş, dört kaynaktan 20’şer gerçek kayıt ayrıştırılmıştır. PHP’nin DNS denetimi bu bulut makinesinde sonuç vermediği için uygulamanın sunucu bağlantısını hostinginizde test edin; koruma mekanizması kapatılmamıştır. Gerçek OpenAI/ücretli ajans/lig sağlayıcısı anahtarları bu pakette bulunmaz; sağlayıcı akışları yerel test belgeleriyle doğrulanmıştır.
+
+Yeni testler: `tests/editorial-integrations.php`, `tests/editorial-http.py`, `tests/browser-editorial.cjs`. Sadece geçici yerel kurulumlarda çalıştırın. Kurulum şeması hâlâ 22 tablodur; haber ve kaynak tablolarının yeni sütunları uygulama açılırken otomatik eklenir.
