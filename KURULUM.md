@@ -1,4 +1,4 @@
-# Reflex Haber Pro · 4 tema · 2.0.0
+# Reflex Haber Pro · 4 tema · 3.0.0
 
 PHP 8.1+ ile çalışan haber sitesi ve yönetim merkezi. Composer, Node, Laravel veya `vendor` kurulumu gerekmez. Türkçe arayüz, Türkiye saat dilimi ve MySQL/MariaDB desteği bulunur. SQLite küçük kurulumlar ve yerel denemeler için kullanılabilir.
 
@@ -21,7 +21,7 @@ Ana alan adında kurulum yapacaksanız dosyaları `public_html` içine açın ve
 
 ### phpMyAdmin ile SQL içe aktarma
 
-Paketin `database/reflex-haber-pro.sql` dosyası 13 tablonun tüm alanlarını ve indekslerini içerir. phpMyAdmin'de kendi veritabanınızı seçin → **İçe aktar** → SQL dosyasını seçin → **Git/Uygula**. Sonra `/kurulum.php` sayfasında aynı veritabanı bilgileriyle yönetici hesabınızı ve isterseniz örnek haberleri oluşturun. Kurulum formu normalde tabloları zaten otomatik oluşturur; SQL önceden içe aktarılmışsa mevcut tablo yapısını kullanır.
+Paketin `database/reflex-haber-pro.sql` dosyası 22 tablonun tüm alanlarını ve indekslerini içerir. phpMyAdmin'de kendi veritabanınızı seçin → **İçe aktar** → SQL dosyasını seçin → **Git/Uygula**. Sonra `/kurulum.php` sayfasında aynı veritabanı bilgileriyle yönetici hesabınızı ve isterseniz örnek haberleri oluşturun. Kurulum formu normalde tabloları zaten otomatik oluşturur; SQL önceden içe aktarılmışsa mevcut tablo yapısını kullanır.
 
 SQL dosyası kullanıcı/parola, API anahtarı veya örnek haber içermez. CREATE TABLE IF NOT EXISTS kullanır; kayıt silmez ve mevcut `rh6_` tablolarını yeni sürüme dönüştürmez. Güncelleme veya kayıp ayar dosyası için aşağıdaki güncelleme/yeniden bağlama yöntemini kullanın. İçe aktarmadan önce yedek alın. SQL içe aktarma 1044/1045 MySQL erişim sorunlarını çözmez; kullanıcı yetkisi ve şifre hosting panelinde düzeltilmelidir. SQL dosyasını web sitesinin herkese açık köküne yüklemeniz gerekmez.
 
@@ -37,9 +37,9 @@ SQL dosyası kullanıcı/parola, API anahtarı veya örnek haber içermez. CREAT
 
 Yeni kurulumda ayar dosyası kaydedilemezse o denemedeki hesap/haber kayıtları geri alınır; geçici parola dosyası temizlenir. Kurulum kilidi bırakılıncaya kadar site istekleri kısa süreli 503 alır. Disk/sunucu sorunu düzelince aynı kurulum tekrar denenebilir. **Tablolarınızı veya veritabanınızı silmeyin.**
 
-## Daha önceki “Demo 6 sıfırdan” sürümünü güncelleme
+## Daha önceki PHP / Pro sürümünü güncelleme
 
-Bu yöntem daha önce gönderilen `reflex-haber-demo6-sifirdan.zip` ile kurulan PHP sürümü içindir.
+Bu yöntem daha önce gönderilen Demo 6 PHP sürümü ve Pro 2.x kurulumları içindir. Pro 3.0 küçük güncelleme ZIP’i yalnızca Pro 2.x sürümünden değişen uygulama dosyalarını içerir. Daha eski Demo 6 PHP sürümü veya sürümü belirsiz mevcut PHP kurulumu için tam ZIP kullanın; tam ZIP yeni kurulumda da kullanılabilir.
 
 1. Veritabanınızın SQL yedeğini alın. `uploads` klasörünü ve `storage/site.php` dosyasını bilgisayarınıza yedekleyin. Varsa `storage/integrations.php` dosyasını da koruyun.
 2. Pro ZIP'ini mevcut projenin klasörüne açın; uygulama dosyalarının üzerine yazın. **Mevcut `storage/site.php`, `storage/integrations.php` ve uploads içeriğini silmeyin.** Paket bu özel dosyaları içermez.
@@ -54,7 +54,7 @@ Panel → **Tema ve Logo** bölümünden seçilir. Tema değiştirmek haberleri 
 
 | Tema | Referans düzeni | Yerleşim |
 |---|---|---|
-| 1 | Demo 6 | Dört üst kart, sarı manşet, sağ haber/yazar sütunu |
+| 1 | Demo 6 | Dört üst kart, sarı manşet, sağ haber sütunu ve orta yazar vitrini |
 | 2 | Demo 8 | Ortada manşet, iki yanda kartlar, iki büyük haber |
 | 3 | Demo 5 | Geniş logo, kırmızı menü, beş kart ve geniş manşet |
 | 4 | Demo 1 | Vitrin banner, dikey sayfalama, beş kart ve haber sütunu |
@@ -75,11 +75,27 @@ Haber detayında sosyal paylaşım, yazdırma, bağlantı kopyalama, yazı boyut
 
 Kategori ve “Tümü” sayfaları büyük manşet, üç sütunlu kartlar, sağ son haber listesi ve sayfalama kullanır. Foto/video listeleri ayrı görüntülenir. Haber yönetiminde durum/tür/başlık filtresi ve sayfalama bulunur.
 
+## Pro 3.0 yeni yayın araçları
+
+- **Makaleler / Köşe Yazıları:** ayrı makale ekleme ekranı, yazar seçimi, taslak/yayında/planlı yayın. Makaleler normal haberlerden ayrı listelenir; yazar vitrini dört temada orta bölümde görünür.
+- **Üst Bant & Son Dakika:** 81 il seçimi, elle sıcaklık veya Open-Meteo, bant rengi ve 30–200 piksel/saniye hız, yanıp sönme, otomatik manşet süresi. Hareket azaltma tercihi ve duraklatma desteklenir.
+- **Piyasalar:** Dolar, Euro, Gram Altın, BIST 100, Bitcoin/TRY ve değişim oranları. Elle değer girebilir, TCMB dolar/euro + CoinGecko Bitcoin kullanabilir veya kendi HTTPS JSON API alanlarını eşleyebilirsiniz. TCMB günlük referans kurudur. Altın/BIST için kendi sağlayıcınız veya elle giriş gerekir; bu veriler uydurulmaz. Verisiz kutular değer bekleniyor gösterir.
+- **Lig & Puan Durumu:** Trendyol Süper Lig sezonu ve gerçek takım tablosu. Elle tablo girişi veya API Merkezi’ndeki API-Football anahtarıyla seçilmiş sezonu şimdi güncelle/test et. Abonelikte lig/sezon erişimi gereklidir. Otomatik spor cron yenilemesi bulunmaz; bu ekran üzerinden güncellenir.
+- **AI Haber & Makale:** doğrulanmış bilgileri girin, tür/üslup/kelime hedefini seçin, önizlemeyi kontrol edin ve taslak veya yayında kaydedin. Makale oluşturma, haber SEO, gündem ve bot AI aynı merkezi OpenAI anahtarını/modelini kullanır.
+- **Türkiye Gündem Merkezi:** Haber Botları’ndaki seçilmiş RSS kaynaklarını tarar, iki farklı kaynakta benzer başlıkları gruplar, erişim ve sayımları gösterir. Panel açıkken 30 dakikada bir yeniler. Kaynakları açıp kontrol ettikten sonra AI + SEO hazırlanır; yayın için önizlemede durum seçip Kaydet kullanılır. Başlık benzerliği tek başına doğrulama değildir.
+- **Ajans Botları:** ANKA, DHA, İHA, İGFA, AA ve özel kaynak seçenekleri; abonelik uç noktası, HTTP Basic kullanıcı/şifre veya Bearer anahtar, RSS/Atom veya JSON alan eşlemesi, test, kategori/yazar, zaman aralığı ve yayın durumu. Ajanslar hazır bağlantı olarak sunulmaz. Ajansın size verdiği teknik adres ve erişim bilgileri gerekir. SOAP, özel giriş/token alma gibi farklı protokoller belgeyle ayrıca uyarlanmalıdır. Kullanıcı/şifre/anahtar özel dosyada tutulur; geri gösterilmez. Kaynaklara kullanım yetkinizle bağlanın.
+- **Modüller:** Anket (tek tarayıcı oy kaydı ve sonuçlar), Fal/Burç, Biyografi, Resmi İlan, Röportaj, Seri İlan, Vefat, E-Dergi (PDF/çevrimiçi belge bağlantısı), Firma Rehberi. Her biri ekle/düzenle/sil, güvenli metin/görsel, taslak/yayın ve bitiş zamanı sunar. Üyeler okuyucu rehberidir; panel kullanıcıları Yazarlar ve Kullanıcılar’dan yönetilir. Otomatik fal servisi veya üyelerin siteye giriş akışı dahil değildir.
+- **Editör Performansı:** 7/30/90/365 gün aralığında yayımlanan haber/makale, kayıtlı görüntülenme ve son yayın. Yeni içeriklere kaydeden editör atanır. Görüntülenme rakamı seçili dönemde yayımlanan içeriklerin toplam okumasıdır, yalnızca dönem içindeki okuma veya GA4 tekil kullanıcı sayısı değildir.
+- **Google Merkezi:** GA4 kimliği, Search Console meta doğrulama değeri, AdSense yayıncı kimliği ve özel Google HEAD kodları. Bunlar sitede uygulanır; panelde çalışmaz. Kimlik kaydetmek yetkili bir Google hesap bağlantısı veya Analytics rapor çekme işlemi oluşturmaz.
+- **Sitemap Kodları:** ana indeks, haber/makale, son 48 saatlik News, kategoriler, sayfalar, modüller ve RSS adresleri; kopyalama/açma. Haber haritası 45.000 URL parçalara ayrılır. Örnek, taslak ve zamanı gelmemiş içerik gönderilmez.
+- **İletişim / Gelen Kutusu:** üst menüdeki İletişim formu mesajı doğrudan panele kaydeder. Durum ve iç not tutulur; yanıtlama bağlantısı kendi e-posta uygulamanızı açar. Mevcut e-posta kutusundan IMAP alma veya otomatik e-posta gönderme dahil değildir.
+- **Reklam özel kod oluştur:** HTML, responsive AdSense veya görsel bağlantısı için başlangıç kodu; kendi sağlayıcı kimliklerinizi düzenleyin. Hazır kodlar yalnızca sitede uygulanır.
+
 ## OpenAI ve SEO
 
-Panel → **OpenAI Ayarları**: kendi API anahtarınızı girin. Varsayılan model `gpt-4.1-mini`; hesabınızda kullanılabilen bir Responses API ve JSON şeması destekleyen model seçebilirsiniz. Anahtar private `storage/integrations.php` içinde saklanır ve panelde geri gösterilmez.
+Panel → **API Merkezi**: kendi API anahtarınızı girin. Varsayılan model `gpt-4.1-mini`; hesabınızda kullanılabilen bir Responses API ve JSON şeması destekleyen model seçebilirsiniz. Anahtar private `storage/integrations.php` içinde saklanır ve panelde geri gösterilmez.
 
-Haber editöründeki SEO skoru başlık, açıklama, kelime sayısı, ara başlık, görsel, odak kelime, slug ve özeti kontrol eder. **OpenAI ile otomatik SEO düzenle** butonu önerileri getirir. Önizlemede “Uygula” seçeneğiyle alanlar değiştirilir; isteğe bağlı haber metni düzenlemesi ayrıca seçilir. Yayınlamak için yine Kaydet gerekir. Metni ve doğruluğunu editör kontrol eder. OpenAI kullanım bedeli kendi hesabınıza aittir; botlar otomatik ücretli AI çağrısı yapmaz.
+Haber editöründeki SEO skoru başlık, açıklama, kelime sayısı, ara başlık, görsel, odak kelime, slug ve özeti kontrol eder. **OpenAI ile otomatik SEO düzenle** butonu önerileri getirir. Önizlemede “Uygula” seçeneğiyle alanlar değiştirilir; isteğe bağlı haber metni düzenlemesi ayrıca seçilir. Yayınlamak için yine Kaydet gerekir. Metni ve doğruluğunu editör kontrol eder. OpenAI kullanım bedeli kendi hesabınıza aittir. Botlarda AI işleme varsayılan olarak kapalıdır; hem API Merkezi’ndeki bot AI seçeneğini hem kaynaktaki AI SEO seçeneğini açarsanız alınan haberler için ücretli AI isteği yapılır. AI başarısız olan haber yayına çıkarılmadan taslakta tutulur.
 
 **SEO Merkezi:** Haber puanları ve puan dağılımı, indeksleme ayarı, canonical, Open Graph/Twitter kartları, NewsArticle/Breadcrumb JSON-LD, XML site haritası, son 48 saatlik Google News haritası ve RSS bulunur. Örnek haberler site haritalarına gönderilmez. Genel Ayarlar'a kendi Google News yayın takip bağlantınızı ekleyebilirsiniz.
 
@@ -95,6 +111,8 @@ Sitenin ziyaret edilmesi RSS botunu sürekli çalıştırmaz. Hostingde aşağı
 */5 * * * * /usr/local/bin/php /home/HESAP/public_html/haber-yeni/cron.php
 ```
 
+Cron ayrıca seçilmiş otomatik hava ve piyasa kaynaklarını saatlik yeniler.
+
 CLI kullanamıyorsanız bot panelindeki gizli HTTP görev adresini hosting zamanlayıcınıza girin. Bu adresin tokenını paylaşmayın; panelden yenilenebilir. Cron zamanı gelen kaynakları çalıştırır ve planlı haberleri yayınlar. Cron aralığı seçilen saate en fazla görev aralığı kadar gecikme ekleyebilir. Kaynaklar TLS, süre ve boyut sınırlarıyla okunur; yerel/özel ağlara erişim engellenir.
 
 ## Reklam, özel kodlar ve güvenlik
@@ -105,7 +123,7 @@ CLI kullanamıyorsanız bot panelindeki gizli HTTP görev adresini hosting zaman
 
 Parola hashleme, CSRF, yönetici/editör yetkileri, oturum yenileme/süre sınırı, giriş denemesi sınırı, hazırlanmış PDO sorguları, haber HTML temizliği, dosya MIME kontrolü, çalıştırılabilir yükleme engeli, özel dosya erişim kuralları, RSS SSRF/XXE koruması ve doğrulanan TLS bağlantıları uygulanmıştır. **Güvenlik** paneli yerel kontrolleri gösterir. Hosting SSL, yedekleme ve erişim kuralları da etkin olmalıdır.
 
-`storage`, `app`, `views`, `tests` adresleri hostingde 403/404 vermeli. Nginx `.htaccess` okumaz; NGINX.md dosyasındaki kuralları hosting yöneticinizle uygulayın. Özel API anahtarı ve site.php dosyalarını Git/ZIP'e eklemeyin.
+`storage`, `app`, `views`, `tests`, `database` adresleri hostingde 403/404 vermeli. Nginx `.htaccess` okumaz; NGINX.md dosyasındaki kuralları hosting yöneticinizle uygulayın. Özel API anahtarı ve site.php dosyalarını Git/ZIP'e eklemeyin.
 
 ## Test ve kayıtlar
 
@@ -113,7 +131,7 @@ Yerel PHP 8.4, MariaDB 11.8 ve SQLite üzerinde kurulum/yayın/medya/yetki/SEO/k
 
 OpenAI için anahtar yokken hata davranışı, Responses API istek biçimi, örnek yanıtların ayrıştırılması ve hatalı yanıtlar yerel testlerle doğrulanmıştır. **Gerçek OpenAI hesabıyla çağrı yapılmadı**; anahtarınızı girdikten sonra hesabınızın kota/model izinleriyle deneyin. Canlı hostinginize dağıtım yapılmamıştır. Apache/Nginx erişim kuralları yerel PHP geliştirme sunucusunda çalıştırılmamıştır. RSS aktarımı ve zamanlama örnek RSS/Atom yanıtlarıyla test edilmiştir; bulut ortamının dış DNS kısıtı nedeniyle canlı RSS adresine bağlantı doğrulanamamıştır. Hostinginizde Şimdi çalıştır ile kontrol edin.
 
-`tests/smoke.py`, `tests/pro-http.py`, `tests/pro-integrations.php`, `tests/browser-pro.cjs` yalnızca silinebilir yerel kurulumlarda çalıştırılmalıdır. Şifreler ortam değişkenlerinden alınır. Görüntülenme ölçümü Pro kurulumundan başlar, panel kullanıcıları sayılmaz. Bot/önizleme istekleri ayrıca filtrelenmediği için bu metrik tekil kullanıcı analitiği değildir. Hava ve piyasa değerleri Genel Ayarlar'dan elle güncellenir.
+`tests/smoke.py`, `tests/pro-http.py`, `tests/pro-integrations.php`, `tests/command-http.py`, `tests/command-integrations.php`, `tests/browser-pro.cjs`, `tests/browser-command.cjs` yalnızca silinebilir yerel kurulumlarda çalıştırılmalıdır. Şifreler ortam değişkenlerinden alınır. Görüntülenme ölçümü Pro kurulumundan başlar, panel kullanıcıları sayılmaz. Bot/önizleme istekleri ayrıca filtrelenmediği için bu metrik tekil kullanıcı analitiği değildir. Hava ve şehir ayarları Üst Bant ekranındadır. Piyasalar ekranı elle giriş veya saatlik veri kaynağı seçimi sunar.
 
 Kurulum düzeltmesi MySQL 1044/1045/1142/2002 hataları, dosya kaydetme başarısızlığı ve başarılı yeniden deneme için gerçek yerel MySQL/SQLite üzerinde test edilmiştir. Mevcut kurulum yeniden bağlandığında tüm tablo kayıtlarının ve parola hash'lerinin aynı kaldığı doğrulanmıştır. `tests/installer.py` yalnızca kendisine ayrılmış silinebilir yerel test kurulumunda çalıştırılır.
 
