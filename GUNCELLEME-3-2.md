@@ -1,3 +1,5 @@
+> Güncel tek adımda paket: [Pro 3.0 ve sonraki sürümler → 3.3.2](GUNCELLEME-3-3-2.md). Aşağıdaki yönergeler önceki sürüm içindir.
+
 # Reflex Haber Pro 3.2 güncelleme
 
 ## Çalışan Pro 3.1 siteniz için

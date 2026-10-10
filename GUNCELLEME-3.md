@@ -1,3 +1,5 @@
+> Güncel tek adımda paket: [Pro 3.0 ve sonraki sürümler → 3.3.2](GUNCELLEME-3-3-2.md). Aşağıdaki yönergeler önceki sürüm içindir.
+
 # Reflex Haber Pro 3.0 güncelleme
 
 Bu küçük ZIP yalnızca Pro 2.x sürümü içindir. Daha eski Demo 6 PHP sürümü, sürümü belirsiz mevcut PHP kurulumu veya yeni kurulum için tam 4 tema ZIP’ini kullanın. Tam ZIP de özel bağlantı dosyalarını içermez; güncellerken mevcut storage/site.php, storage/integrations.php ve uploads içeriğini koruyun.

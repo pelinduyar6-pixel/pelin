@@ -1,3 +1,5 @@
+> Güncel tek adımda paket: [Pro 3.0 ve sonraki sürümler → 3.3.2](GUNCELLEME-3-3-2.md). Aşağıdaki yönergeler önceki sürüm içindir.
+
 # Reflex Haber Pro 3.3.1 düzeltme
 
 Çalışan **Pro 3.3.0** sitesinde `reflex-haber-pro-3-3-1-duzeltme.zip` kullanın. Önce dosya ve veritabanı yedeğinizi alın. ZIP’in içindeki uygulama dosyalarını, sitenin mevcut `index.php` dosyasıyla aynı köke açın. **app, assets ve views içindeki dosyaların üzerine yazın; yeni dosyaları da yükleyin.** Paneli açıp Ctrl+F5 yapın.

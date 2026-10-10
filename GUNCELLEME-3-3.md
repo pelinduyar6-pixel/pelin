@@ -1,3 +1,5 @@
+> Güncel tek adımda paket: [Pro 3.0 ve sonraki sürümler → 3.3.2](GUNCELLEME-3-3-2.md). Aşağıdaki yönergeler önceki sürüm içindir.
+
 # Reflex Haber Pro 3.3 güncelleme
 
 **Güncel paket 3.3.1’dir. Son tema tasarımı geri alınmıştır; SQL/ZIP/doğrudan klasör yükleme eklenmiştir. Güncel adımlar: [GUNCELLEME-3-3-1.md](GUNCELLEME-3-3-1.md).**
