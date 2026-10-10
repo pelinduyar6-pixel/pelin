@@ -14,3 +14,7 @@ Panelde **Veri Taşıma** menüsünü yalnızca yönetici kullanabilir. SQL, gö
 Eski **haber ID’leri yeni haber ID’si olarak kullanılmaz**; kategori ilişkileri eşleştirmeyle korunur. Eski alan adları/URL yapısı yeni sistemden farklıysa yönlendirmeleri ayrıca düzenleyin. Kullanıcı hesapları, parolalar, eski site ayarları, tablolar, reklam kodları, yorumlar, video/PDF dosyaları ve kategori ağaçları bu taşıma menüsünün kapsamı dışındadır. Çoklu kategori ilişki tabloları, WordPress taxonomy yapıları, SQL fonksiyonlu INSERT’ler ve PostgreSQL COPY dökümleri ayrıca dönüştürülmelidir. Bilinmeyen bir yazılımın şeması için eşleştirmeyi gerçek dosyayla doğrulayın.
 
 SQL ve geçici veriler `storage/migrations` altında saklanır; tüm `storage` klasörü HTTP erişimine kapalı olmalıdır. Apache paketin `.htaccess` dosyalarını, Nginx [NGINX.md](NGINX.md) içindeki engelleme kurallarını kullanmalıdır. Yedek alın ve önce test kurulumunda küçük bir arşivle deneyin. Bu menü hostingde dosya dağıtımı veya otomatik canlıya geçiş yapmaz.
+
+## Eski aktarımda JSON hatası
+
+Pro 3.4.3 eski tamamlanmamış aktarımın geçici kayıtlarını yüklenmiş SQL’den yeniden kurar. Aynı aktarımı açıp **SQL incelemesine devam et** düğmesine basın. SQL/görselleri yeniden yüklemek gerekmez; alan eşleştirmesi, kategori hedefleri ve taslak aktarım sayacı korunur. [3.4.3 adımları](GUNCELLEME-3-4-3.md).

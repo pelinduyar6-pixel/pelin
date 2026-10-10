@@ -3,7 +3,7 @@
 1. phpMyAdmin'i açın. Sol menüden bu site için kullanacağınız MySQL veritabanını seçin. Önce mevcut verilerin yedeğini alın.
 2. Üst menüden **İçe aktar (Import)** seçeneğine tıklayın.
 3. **Dosya seç** ile bu paketteki `reflex-haber-pro.sql` dosyasını seçin. Biçim SQL, karakter kodlaması UTF-8 olsun.
-4. **Git/Uygula (Go)** düğmesine basın. Pro 3.4.2 için yeni veritabanında 25 adet `rh6_` tablosu oluşur.
+4. **Git/Uygula (Go)** düğmesine basın. Pro 3.4.3 için yeni veritabanında 25 adet `rh6_` tablosu oluşur.
 5. Sitenizde `/kurulum.php` sayfasını açın. Aynı veritabanının tam adını, MySQL kullanıcısını ve şifresini girin. Kendi yönetici e-postanızı ve şifrenizi belirleyip kurulumu tamamlayın. İsterseniz örnek haberleri ekleyin.
 
 Kurulum sayfası tabloları kendisi de oluşturabilir. SQL dosyası phpMyAdmin üzerinden önceden oluşturmak isteyenler içindir. SQL tek başına yönetici hesabı, bağlantı dosyası veya örnek içerik oluşturmaz; bunlar kurulumda hazırlanır.
