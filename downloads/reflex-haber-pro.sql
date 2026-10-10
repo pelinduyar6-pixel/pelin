@@ -1,4 +1,4 @@
--- Reflex Haber Pro 3.2.0 | 9 Ekim 2026
+-- Reflex Haber Pro 3.3.0 | 10 Ekim 2026
 -- MySQL/MariaDB tablo yapisi. phpMyAdmin'de kendi veritabaninizi secip ice aktarin.
 -- Tablo/kayit silmez. Yonetici, parola, API anahtari ve ornek haber icermez.
 -- Ice aktarma sonrasi /kurulum.php uzerinden yonetici hesabinizi olusturun.
@@ -211,8 +211,10 @@ CREATE TABLE IF NOT EXISTS `rh6_news` (
   `pdf_file` varchar(1000) DEFAULT NULL,
   `embed_code` text DEFAULT NULL,
   `seo_autofill` int(11) NOT NULL DEFAULT 1,
+  `migration_key` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`),
+  UNIQUE KEY `rh6_news_migration` (`migration_key`),
   KEY `rh6_news_published` (`status`,`published_at`,`id`),
   KEY `rh6_news_category` (`category_id`,`status`,`published_at`),
   KEY `rh6_news_kind` (`kind`,`status`,`published_at`)
@@ -235,6 +237,8 @@ CREATE TABLE IF NOT EXISTS `rh6_news_sources` (
   `ai_seo` int(11) NOT NULL DEFAULT 0,
   `source_kind` varchar(20) NOT NULL DEFAULT 'auto',
   `fetch_full` int(11) NOT NULL DEFAULT 0,
+  `schedule_mode` varchar(12) NOT NULL DEFAULT 'interval',
+  `daily_time` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `rh6_sources_due` (`active`,`next_run_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
