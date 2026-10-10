@@ -3,7 +3,7 @@
 1. phpMyAdmin'i açın. Sol menüden bu site için kullanacağınız MySQL veritabanını seçin. Önce mevcut verilerin yedeğini alın.
 2. Üst menüden **İçe aktar (Import)** seçeneğine tıklayın.
 3. **Dosya seç** ile bu paketteki `reflex-haber-pro.sql` dosyasını seçin. Biçim SQL, karakter kodlaması UTF-8 olsun.
-4. **Git/Uygula (Go)** düğmesine basın. Pro 3.3.3 için yeni veritabanında 24 adet `rh6_` tablosu oluşur.
+4. **Git/Uygula (Go)** düğmesine basın. Pro 3.3.4 için yeni veritabanında 25 adet `rh6_` tablosu oluşur.
 5. Sitenizde `/kurulum.php` sayfasını açın. Aynı veritabanının tam adını, MySQL kullanıcısını ve şifresini girin. Kendi yönetici e-postanızı ve şifrenizi belirleyip kurulumu tamamlayın. İsterseniz örnek haberleri ekleyin.
 
 Kurulum sayfası tabloları kendisi de oluşturabilir. SQL dosyası phpMyAdmin üzerinden önceden oluşturmak isteyenler içindir. SQL tek başına yönetici hesabı, bağlantı dosyası veya örnek içerik oluşturmaz; bunlar kurulumda hazırlanır.
@@ -16,4 +16,4 @@ Dosya CREATE TABLE IF NOT EXISTS kullanır; DROP/DELETE/TRUNCATE, parola, API an
 
 **1045:** MySQL kullanıcı adını hesap ön ekiyle birlikte kullanın ve hosting panelinden bu kullanıcının şifresini doğrulayın/yeniden belirleyin. MySQL şifresi ile haber yönetim paneli şifresi farklıdır. SQL içe aktarma bu erişim sorunlarını gidermez.
 
-SQL şeması uygulamanın oluşturduğu MySQL tablolarından üretilir. Yeni cPanel kurulumu için tam ZIP’in içinde `database/reflex-haber-pro.sql` ve [kurulum adımları](CPANEL-KURULUM-3-3-3.md) vardır. SQL içe aktarma, ardından web kurulum/yönetici girişi ve haber yayınlama akışı yerel MariaDB üzerinde doğrulanır; canlı hostinginizde işlem yapılmadı.
+SQL şeması uygulamanın oluşturduğu MySQL tablolarından üretilir. Yeni cPanel kurulumu için tam ZIP’in içinde `database/reflex-haber-pro.sql` ve [kurulum adımları](CPANEL-KURULUM-3-3-4.md) vardır. SQL içe aktarma, ardından web kurulum/yönetici girişi ve haber yayınlama akışı yerel MariaDB üzerinde doğrulanır; canlı hostinginizde işlem yapılmadı.

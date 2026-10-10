@@ -1,60 +1,37 @@
-# Reflex Haber Pro 3.3.3 · 4 Tema
+# Reflex Haber Pro 3.3.4 · 4 Tema
 
-PHP 8.1+ haber sitesi ve Türkçe yayın yönetim merkezi. MySQL/MariaDB veya SQLite; Composer, Laravel ve Node kurulumu gerekmez.
+PHP 8.1+ haber sitesi ve Türkçe yönetim merkezi. MySQL/MariaDB veya SQLite; Composer/Node derlemesi gerekmez.
 
-**[Pro 3.0 / 3.1 / 3.2 / 3.3 için tek adımda tam güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-3-tam-guncelleme.zip)**
+- **[Mevcut Pro 3.0–3.3.3 için tam güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-4-tam-guncelleme.zip)**
+- **[Yeni cPanel için SQL içeren tam kurulum ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-4-cpanel-sql.zip)**
+- [Ayrı kurulum SQL ZIP](downloads/reflex-haber-sql.zip) · [SQL dosyası](downloads/reflex-haber-pro.sql)
 
-**[Yeni cPanel kurulumu için SQL içeren tam paket ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-3-cpanel-sql.zip)**
+[3.3.4 güncelleme adımları](GUNCELLEME-3-3-4.md) · [Yeni cPanel kurulumu](CPANEL-KURULUM-3-3-4.md) · [Doğrulama](DOGRULAMA-3-3-4.md) · [Veri taşıma](VERI-TASIMA.md) · [Sosyal medya](SOSYAL-MEDYA.md) · [SHA-256](downloads/reflex-haber-pro-3-3-4-tam-guncelleme.sha256)
 
-Bu sürüm: kaydırma çubuğu olmayan kategori menüsü, manşet üzerinde Son Dakika şeridinin kaldırılması, referans sütun düzeninde haber listesi, ayrı editör adım numaraları, gerçek anonim **Canlı Veri Merkezi**, **BİK kod alanı** ve elle seçilen/açılan bot kaynakları.
+## Bu güncelleme
 
-[3.3.3 yükleme adımları](GUNCELLEME-3-3-3.md) · [Doğrulama sonuçları](DOGRULAMA-3-3-3.md) · [Veri taşıma](VERI-TASIMA.md) · [Kurulum](KURULUM.md) · [Nginx](NGINX.md) · [SHA-256](downloads/reflex-haber-pro-3-3-3-tam-guncelleme.sha256)
+SQL+ZIP seçiliyken yüklemenin başlamaması giderildi. SQL, ZIP ve klasör görselleri sunucu sınırının altında parçalar hâlinde yüklenir; yüzde/boyut ve kesinti sonrası devam gösterilir. Eski toplam dosya/kayıt/görsel sayısı sınırları kaldırıldı. Büyük SQL analizi ve ZIP / ZIP64 çıkarımı aşamalar hâlinde yapılır. Sunucu disk kotası ve çalışma kaynakları geçerlidir.
 
-**104 KB’lık eski Pro 3.0→3.1 ZIP’i güncel değildir.** Güncel paket tüm gerekli uygulama, CSS ve JavaScript dosyalarını birlikte içerir. Güncellemeden sonra panelde **Sistem Kontrolü** ekranından eksik/karışık dosyaları görebilirsiniz.
+Footer yazıları ve haber içi sağ sütun başlıkları büyütüldü, blok aralıkları düzenlendi. Boş sosyal bant ve tekrarlanan ikinci manşet kaldırıldı. Son Dakika bandı ana sayfanın ana manşet bölümünde bir kez görünür; başlık ve numaralara dikey bant bindirilmez. Dört temada kategori menüsü satıra yayılır.
 
-Yeni cPanel için [SQL içeren tam paket](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-3-cpanel-sql.zip) ve [cPanel kurulum adımları](CPANEL-KURULUM-3-3-3.md).
+**Sosyal Medya Merkezi** footer profil menüsünü ve Meta/Facebook Sayfası ile X otomatik paylaşımını yönetir. Kuyruk cron ile gönderir; metin/bağlantı önizlemesi, platform ID’si ve hata kaydı sunar. Aynı haber/platform tekrar gönderilmez; belirsiz gönderimler otomatik tekrar denenmez. Gerçek hesap anahtarları, izinleri ve API planları kullanıcı tarafından panelde ayarlanır.
 
-Yeni kurulum için [SQL ZIP](downloads/reflex-haber-sql.zip), [SQL dosyası](downloads/reflex-haber-pro.sql) ve [phpMyAdmin adımları](SQL-KURULUM.md). **Çalışan siteyi güncellerken SQL’i yeniden içe aktarmayın.**
+## Korunan araçlar
 
-## 3.3.3 düzeltmesi ve korunan araçlar
+Türkiye Gündemi ana kategori seçimi, değişken kategori düzenleri, Teknoloji/Magazin blokları, ana sayfa kategori/sıralama yönetimi, dört tema ve özelleştirilebilir reklam alanları; haber listesinde toplu seçim, filtreler, kaynak, konum, yayın, görüntülenme, SEO ve sosyal paylaşım menüsü; düzenli editör adımları ve SEO araçları.
 
-- Dört temanın 3.2 ana sayfa ve footer görünümü geri alındı; son tema yeniden tasarımı kaldırıldı. Marka renkleri panelden seçilir. Kategori manşetinin beyaz bant ve başlık/numara çakışması düzeltmeleri korunur. Haber listesinde Önceki / 1 / 2 / 3 / Sonraki ayrı düğmelerle gösterilir.
-- **Türkiye Gündemi** ana manşet ve haber alanıdır. Eski Gündem kategori ID’si ve `gundem` URL’si korunur. **Ana Sayfa & Kategoriler** ekranından ana kategori, alt bölümler, sıraları ve görünümleri seçilir. Ana sayfa ve haber içinde gerçek görüntülenme sayılarına göre **En çok okunanlar** sağ sütunu; içeriksiz video/galeri bölümleri gizlenir.
-- **Paylaş** menüsü: Facebook, X, WhatsApp, Telegram, LinkedIn, Pinterest, Reddit, e-posta, bağlantı kopyala. Menü tablo sınırlarında kesilmez, klavyeyle kullanılabilir. Haber listesi başlıkları ve sayfa düğmeleri okunaklıdır.
-- **Haber Botları**: kullanıcının URL’si, hedef kategori/yazar, aralık veya günlük Türkiye saati; genel ayarlar, kaynak tablosu, son/sonraki çalışma ve cron komutu. Otomatik kaynak/ajans importu hosting cron’uyla çalışır. Elle çalıştırma ayrı düğmedir.
-- Ortak **GPT-5.6 Sol / Terra / Luna** seçimi ve özel API model kimliği alanı. SEO, haber/makale, bot ve bağlantı testi aynı modeli kullanır. Model erişimi gerçek API hesabında test edilmelidir; başarı etiketi yalnızca başarılı bağlantı testinden sonra gösterilir. Erişilemeyen model yerine sessizce başka model kullanılmaz.
-- Haber detayı: görselli son haberler, ilgili haberler ve en çok okunanlar. **Reklam Alanları**: metin içi reklam ve haber sağ sütunu üst/orta/alt; cihaz/zaman/öncelik ayarları. Atanmamış reklam boş kutu bırakmaz.
-- **Veri Taşıma**: ilk ekranda SQL, görsel ZIP ve doğrudan uploads / resim klasörü seçimi vardır. SQL ve görseller ayrı yüklenebilir; klasörler küçük gruplarla gönderilir. Alt yollar korunur, tablo/alan/kategori ID eşleştirmesi ve haber önizlemesi sunulur. Boş kategori ID’leri korunur; çakışmalarda mevcut kategoriler ezilmez. Haberler 100 kayıtlık, devam edebilen adımlarla **taslak** aktarılır. Aynı SQL’in tekrar işlenmesi haberleri çoğaltmaz. Eski hesaplar/parolalar ve çoklu kategori ilişki tabloları bu aktarımın kapsamı dışındadır; [desteklenen biçimler](VERI-TASIMA.md).
+**Canlı Veri Merkezi**, anonim gerçek ziyaretçi dağılımı, **BİK kod alanı**, kullanıcının URL/kategori/saat seçtiği bot kaynakları ve cron, piyasa ve lig veri entegrasyonları korunur. OpenAI Sol/Terra/Luna seçenekleri ve özel model ID alanı vardır; gerçek model erişimi kullanıcı API hesabında test edilmelidir.
 
-[Türkiye Gündemi](previews/pro/turkiye-gundemi.png) · [Paylaş menüsü](previews/pro/paylas-menu.png) · [Bot merkezi](previews/pro/bot-merkezi.png) · [Haber detayı](previews/pro/haber-detay.png) · [Kategori manşeti](previews/pro/kategori-slider.png) · [SQL / ZIP / klasör yükleme](previews/pro/veri-tasima-yukleme.png) · [Taşıma önizlemesi](previews/pro/veri-tasima-onizleme.png) · [Haber listesi / paylaş](previews/pro/haber-listesi.png) · [Canlı veri merkezi](previews/pro/canli-veri.png) · [BİK kod alanı](previews/pro/bik-kodu.png) · [Düzeltilen sayfalama](previews/pro/haber-sayfalama.png) · [Sistem Kontrolü](previews/pro/sistem-kontrolu.png)
+## Kurulum / güncelleme
 
-![Tema 1](previews/pro/tema-1.png)
+Yeni site: tam ZIP’i yeni web köküne açın. İsterseniz `database/reflex-haber-pro.sql` dosyasını boş phpMyAdmin veritabanına aktarın, ardından `/kurulum.php` ile kendi yönetici hesabınızı oluşturun. SQL 25 tablo tanımı içerir; haber/veri veya kullanıcı parolası içermez.
 
-## Dört tema, tek içerik
+Mevcut site: tam güncelleme ZIP’ini mevcut köke açın; **SQL’i tekrar içe aktarmayın veya kurulum başlatmayın**. Mevcut `.env`, `storage`, hesaplar, kategori ilişkileri, API anahtarları ve uploads korunur. Panelde **Sistem Kontrolü → 3.3.4 → Güncelleme dosyaları eksiksiz** kontrolünü yapın. Eski 104 KB güncelleme paketini kullanmayın.
 
-| Tema | Üst yerleşim | Otomatik kategori düzeni | Önizleme |
-|---|---|---|---|
-| 1 | Ana manşet ve sağ haber sütunu | Büyük haber + dört kart | [Tema 1](previews/pro/tema-1.png) |
-| 2 | Merkez manşet ve yan haberler | İki büyük + dört küçük | [Tema 2](previews/pro/tema-2.png) |
-| 3 | Kırmızı menü ve geniş manşet | Asimetrik mozaik | [Tema 3](previews/pro/tema-3.png) |
-| 4 | Vitrin banner ve haber şeridi | Kompakt haber akışı | [Tema 4](previews/pro/tema-4.png) |
+Eski site arşivi: yeni kurulumdan sonra **Veri Taşıma** ekranına veri içeren SQL ve ayrı uploads klasörünü yükleyin, alan/kategorileri eşleştirin, önizleyip taslak aktarın. Boş eski kategori ID’si korunur; çakışmada mevcut kategori ezilmez. Eski hesaplar/parolalar taşınmaz.
 
-Temalar panelden değişir; haberler ve hesaplar korunur. Önizlemelerdeki haberler, fiyatlar ve puanlar yerel test/demonstrasyon verileridir; pakete güncel veri olarak sabitlenmez.
+## Doğrulama ve sınırlar
 
-## Korunan yayın araçları
+2 MB PHP yükleme/POST sınırı, 64 MB bellek ve 10 saniye istek süresiyle 32 MB’tan büyük SQL, tek INSERT içinde 160.005 kayıt, 64 MB’tan büyük ZIP ve 5.002 görsel doğrulandı. Tarayıcıda klasör seçmeden SQL+ZIP, 3 MB klasör görseli, ilerleme, hata ve devam çalıştı. Dört tema 320–1440 px genişlikte kontrol edildi. Ayrıntılar [DOGRULAMA-3-3-4.md](DOGRULAMA-3-3-4.md).
 
-Yazarların altında ince piyasalar bandı; Sözcü fiyat bandı/NTV BIST, TCMB/CoinGecko, özel JSON ve elle giriş. Anahtarsız NTV Spor Süper Lig; API-Football ve elle giriş. Son başarılı veriler bağlantı kesintisinde korunur. Yazarlar tek kaydırılabilir satırda; manşet 3 saniye varsayılan aralıkla geçer, azaltılmış hareket tercihi desteklenir.
-
-TRT/NTV/CNN Türk/Sözcü kaynak seçmeli Türkiye Gündem Merkezi; özel RSS/Atom veya haber/kategori URL botları; ANKA/DHA/İHA/İGFA/AA abonelik RSS/JSON alanları. Ajansların özel bağlantı belgeleri ve abonelik bilgileri gerekir; sağlayıcıya özel giriş/SOAP protokolleri ayrıca uyarlanır.
-
-Haber/makale yönetimi, filtreli toplu seçim ve yayına alma/taslak/silme; MP4/WebM/PDF yükleme, video embed, medya kütüphanesi, canlı SEO skoru ve boş SEO alanlarının tamamlanması. Reklam editörü, Google Merkezi, sitemap/Google News/RSS, editör performansı, iletişim formundan gelen kutusu, modüller ve logo/servis/sosyal/footer ayarları bulunur.
-
-## Kurulum ve doğrulama
-
-Yeni klasöre tam ZIP’i açın; `/kurulum.php` ile kendi veritabanı ve yönetici hesabınızı oluşturun. Panel `/panel.php` adresindedir. Çalışan Pro 3.0 ve sonrası için 3.3.3 tam güncelleme ZIP’i kullanılır. **`.env`, `storage`, `uploads` korunur; çalışan site yeniden kurulmaz.** Eski Laravel paketinin üzerine açmayın.
-
-Kaynak, piyasa, lig ve OpenAI bağlantılarını panelde test edin; gizli anahtarları yalnızca özel panel alanlarına girin. Hosting cron görevini 5 dakikada bir kurun. SQL/görsel taşıma önce test ortamında denenmelidir. Storage HTTP erişimine kapalı, PHP Phar uzantısı görsel ZIP işlemi için açık olmalıdır.
-
-3.3.3: 104 PHP dosyasının sözdizimi, 140 PHP entegrasyon kontrolü, 160 tarayıcı kontrolü ve SQLite/MySQL’de 32 yeni özellik HTTP kontrolü geçti. SQL içeren yeni cPanel paketi boş MariaDB veritabanına aktarılarak 24 tablo, web kurulumu, yönetici girişi, haber/görsel işlemleri ve veri taşıma doğrulandı. Gerçek Pro 3.0 ve 3.3.2 kurulumlarına tekrarlı güncellemede eski haberler, hesap/parolalar, kategori ID’leri, seçilmiş bot kaynakları, ayarlar ve özel dosyalar korundu. [Ayrıntılı kanıt ve sınırlar](DOGRULAMA-3-3-3.md).
-
-Önceki doğrulamada resmi dört haber RSS’i, Sözcü fiyatları ve NTV lig/BIST verileri ayrıştırıldı. Bulut PHP DNS pinleme kontrolünde dış alan adları çözülemedi; koruma kapatılmadı. Hosting bağlantıları ayrıca test edilmelidir. Gerçek OpenAI model erişimi/ücretli ajans çağrısı ve canlı hosting dağıtımı yapılmadı. Önceki ZIP’ler downloads klasöründe korunur; eski yamaları 3.3.1 dosyalarının üzerine uygulamayın.
+Canlı hosting’e yükleme veya gerçek Meta/X hesabına gönderim yapılmadı. Canlı sağlayıcılar, OpenAI modelleri ve abonelikli ajanslar için hosting üzerinde hesap/plan erişimi doğrulanmalıdır; SSRF veya TLS denetimleri kapatılmaz. [Nginx ayarları](NGINX.md).
