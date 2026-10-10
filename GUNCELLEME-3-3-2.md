@@ -1,3 +1,5 @@
+> Güncel sürüm 3.3.3: [tek güncelleme ve SQL/uploads adımları](GUNCELLEME-3-3-3.md).
+
 # Pro 3.0 / 3.1 / 3.2 / 3.3 → 3.3.2
 
 **Tek adımda tam güncelleme:** `reflex-haber-pro-3-3-2-tam-guncelleme.zip`.
