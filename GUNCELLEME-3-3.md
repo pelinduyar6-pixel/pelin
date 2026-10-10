@@ -1,5 +1,7 @@
 # Reflex Haber Pro 3.3 güncelleme
 
+**Güncel paket 3.3.1’dir. Son tema tasarımı geri alınmıştır; SQL/ZIP/doğrudan klasör yükleme eklenmiştir. Güncel adımlar: [GUNCELLEME-3-3-1.md](GUNCELLEME-3-3-1.md).**
+
 Çalışan **Pro 3.2** sitesi için `reflex-haber-pro-3-3-guncelleme.zip` kullanın. Önce dosyaları ve veritabanını yedekleyin. ZIP’in uygulama dosyalarını mevcut `index.php` ile aynı proje köküne yükleyin; `app`, `assets`, `views` ve `cron.php` dosyalarının üzerine yazın. Yeni CSS/JS ve görünüm dosyalarının da yüklenmesi gerekir.
 
 **`.env`, `storage/site.php`, `storage/integrations.php`, diğer storage verileri ve uploads dosyalarınızı koruyun.** Güncelleme ZIP’i bunları içermez. Paneli açıp Ctrl+F5 yapın. Haber kaynağı takvimi için iki alan, taşıma tekrarlarını önlemek için haber tablosuna `migration_key` alanı ve benzersiz indeks otomatik eklenir; hosting veritabanı kullanıcısının ALTER/indeks oluşturma yetkisi gerekir. Haberler, hesaplar, parola özetleri, anahtarlar ve yüklemeler korunur. **SQL’i yeniden içe aktarmayın, kurulum ekranını tekrar çalıştırmayın.**

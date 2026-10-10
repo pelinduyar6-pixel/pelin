@@ -1,24 +1,26 @@
-# Reflex Haber Pro 3.3 · 4 Tema
+# Reflex Haber Pro 3.3.1 · 4 Tema
 
 PHP 8.1+ haber sitesi ve Türkçe yayın yönetim merkezi. MySQL/MariaDB veya SQLite; Composer, Laravel ve Node kurulumu gerekmez.
 
-**[Tam paket ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-4-tema.zip)** · **[Pro 3.2 → 3.3 güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-guncelleme.zip)**
+**[Kurulu 3.3 için düzeltme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-1-duzeltme.zip)**
 
-[3.3 yükleme adımları](GUNCELLEME-3-3.md) · [Veri taşıma](VERI-TASIMA.md) · [Kurulum](KURULUM.md) · [Nginx](NGINX.md) · [SHA-256](downloads/reflex-haber-pro-4-tema.sha256)
+**[Tam paket ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-4-tema.zip)** · **[Pro 3.2 → 3.3.1 güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-3-guncelleme.zip)**
+
+[3.3.1 yükleme adımları](GUNCELLEME-3-3-1.md) · [Veri taşıma](VERI-TASIMA.md) · [Kurulum](KURULUM.md) · [Nginx](NGINX.md) · [SHA-256](downloads/reflex-haber-pro-4-tema.sha256)
 
 Yeni kurulum için [SQL ZIP](downloads/reflex-haber-sql.zip), [SQL dosyası](downloads/reflex-haber-pro.sql) ve [phpMyAdmin adımları](SQL-KURULUM.md). **Çalışan siteyi güncellerken SQL’i yeniden içe aktarmayın.**
 
-## 3.3 değişiklikleri
+## 3.3.1 düzeltmesi ve korunan araçlar
 
-- Dört temada canlı renkli zeminler ve kartlar; mor/pembe magazin, turkuaz teknoloji, yeşil spor, mavi ekonomi. Marka renkleri panelden seçilir. Kategori manşetinin beyaz bandı kaldırıldı; numaralar görselin altında, başlık ve etiket ayrı satırlarda.
-- **Türkiye Gündemi** ana manşet ve haber alanıdır. Eski Gündem kategori ID’si ve `gundem` URL’si korunur. **Ana Sayfa & Kategoriler** ekranından ana kategori, alt bölümler, sıraları ve görünümleri seçilir. Gerçek görüntülenme sayılarına göre **En çok okunanlar** sağ sütunu; içeriksiz video/galeri ve boş sosyal bant için gereksiz boşluk bırakılmaz.
-- **Paylaş** menüsü: Facebook, X, WhatsApp, Telegram, LinkedIn, Pinterest, Reddit, e-posta, bağlantı kopyala. Menü tablo sınırlarında kesilmez, klavyeyle kullanılabilir. Site/panel/footer yazıları büyütüldü.
+- Dört temanın 3.2 ana sayfa ve footer görünümü geri alındı; son tema yeniden tasarımı kaldırıldı. Marka renkleri panelden seçilir. Kategori manşetinin beyaz bant ve başlık/numara çakışması düzeltmeleri korunur. Haber listesinde Önceki / 1 / 2 / 3 / Sonraki ayrı düğmelerle gösterilir.
+- **Türkiye Gündemi** ana manşet ve haber alanıdır. Eski Gündem kategori ID’si ve `gundem` URL’si korunur. **Ana Sayfa & Kategoriler** ekranından ana kategori, alt bölümler, sıraları ve görünümleri seçilir. Haber içinde gerçek görüntülenme sayılarına göre **En çok okunanlar** sağ sütunu; içeriksiz video/galeri bölümleri gizlenir.
+- **Paylaş** menüsü: Facebook, X, WhatsApp, Telegram, LinkedIn, Pinterest, Reddit, e-posta, bağlantı kopyala. Menü tablo sınırlarında kesilmez, klavyeyle kullanılabilir. Haber listesi başlıkları ve sayfa düğmeleri okunaklıdır.
 - **Haber Botları**: kullanıcının URL’si, hedef kategori/yazar, aralık veya günlük Türkiye saati; genel ayarlar, kaynak tablosu, son/sonraki çalışma ve cron komutu. Otomatik kaynak/ajans importu hosting cron’uyla çalışır. Elle çalıştırma ayrı düğmedir.
 - Ortak **GPT-5.6 Sol / Terra / Luna** seçimi ve özel API model kimliği alanı. SEO, haber/makale, bot ve bağlantı testi aynı modeli kullanır. Model erişimi gerçek API hesabında test edilmelidir; başarı etiketi yalnızca başarılı bağlantı testinden sonra gösterilir. Erişilemeyen model yerine sessizce başka model kullanılmaz.
 - Haber detayı: görselli son haberler, ilgili haberler ve en çok okunanlar. **Reklam Alanları**: metin içi reklam ve haber sağ sütunu üst/orta/alt; cihaz/zaman/öncelik ayarları. Atanmamış reklam boş kutu bırakmaz.
-- **Veri Taşıma**: SQL ve görsel ZIP ayrı yüklenir, tablo/alan/kategori ID eşleştirmesi ve haber önizlemesi sunulur. Boş kategori ID’leri korunur; çakışmalarda mevcut kategoriler ezilmez. Haberler 100 kayıtlık, devam edebilen adımlarla **taslak** aktarılır. Aynı SQL’in tekrar işlenmesi haberleri çoğaltmaz. Eski hesaplar/parolalar ve çoklu kategori ilişki tabloları bu aktarımın kapsamı dışındadır; [desteklenen biçimler](VERI-TASIMA.md).
+- **Veri Taşıma**: ilk ekranda SQL, görsel ZIP ve doğrudan uploads / resim klasörü seçimi vardır. SQL ve görseller ayrı yüklenebilir; klasörler küçük gruplarla gönderilir. Alt yollar korunur, tablo/alan/kategori ID eşleştirmesi ve haber önizlemesi sunulur. Boş kategori ID’leri korunur; çakışmalarda mevcut kategoriler ezilmez. Haberler 100 kayıtlık, devam edebilen adımlarla **taslak** aktarılır. Aynı SQL’in tekrar işlenmesi haberleri çoğaltmaz. Eski hesaplar/parolalar ve çoklu kategori ilişki tabloları bu aktarımın kapsamı dışındadır; [desteklenen biçimler](VERI-TASIMA.md).
 
-[Türkiye Gündemi](previews/pro/turkiye-gundemi.png) · [Paylaş menüsü](previews/pro/paylas-menu.png) · [Bot merkezi](previews/pro/bot-merkezi.png) · [Haber detayı](previews/pro/haber-detay.png) · [Kategori manşeti](previews/pro/kategori-slider.png) · [Taşıma önizlemesi](previews/pro/veri-tasima-onizleme.png)
+[Türkiye Gündemi](previews/pro/turkiye-gundemi.png) · [Paylaş menüsü](previews/pro/paylas-menu.png) · [Bot merkezi](previews/pro/bot-merkezi.png) · [Haber detayı](previews/pro/haber-detay.png) · [Kategori manşeti](previews/pro/kategori-slider.png) · [SQL / ZIP / klasör yükleme](previews/pro/veri-tasima-yukleme.png) · [Taşıma önizlemesi](previews/pro/veri-tasima-onizleme.png) · [Düzeltilen sayfalama](previews/pro/haber-sayfalama.png)
 
 ![Tema 1](previews/pro/tema-1.png)
 
@@ -47,6 +49,6 @@ Yeni klasöre tam ZIP’i açın; `/kurulum.php` ile kendi veritabanı ve yönet
 
 Kaynak, piyasa, lig ve OpenAI bağlantılarını panelde test edin; gizli anahtarları yalnızca özel panel alanlarına girin. Hosting cron görevini 5 dakikada bir kurun. SQL/görsel taşıma önce test ortamında denenmelidir. Storage HTTP erişimine kapalı, PHP Phar uzantısı görsel ZIP işlemi için açık olmalıdır.
 
-SQLite/MySQL üzerinde URL/saat ayarları, ortak model, reklam yerleşimleri, gerçek SQL/görsel ZIP aktarımı, taslaklar, kategori ID ilişkileri ve izin/CSRF kontrolleri geçti. Dört tema ve yönetim ekranları 320–1440 pikselde; paylaşım/clipboard, manşet, yazar kaydırma ve taşıma önizlemesi doğrulandı. Gerçek 3.2 → 3.3 delta testi **56 haber, 7 hesap/parola hash’i, kategori ID/URL’leri, özel ayarlar, anahtar dosyaları, .env ve PDF’yi korudu**. Yeni kurulum ve 22 tablolu şema doğrulandı.
+SQLite/MySQL üzerinde URL/saat ayarları, ortak model, reklam yerleşimleri, gerçek SQL/görsel ZIP ve doğrudan klasör aktarımı, taslaklar, kategori ID ilişkileri ve izin/CSRF kontrolleri geçti. Dört tema ve yönetim ekranları 320–1440 pikselde; paylaşım/clipboard, manşet, yazar kaydırma ve taşıma önizlemesi doğrulandı. Gerçek 3.2 → 3.3 delta testi **56 haber, 7 hesap/parola hash’i, kategori ID/URL’leri, özel ayarlar, anahtar dosyaları, .env ve PDF’yi korudu**. Yeni kurulum ve 22 tablolu şema doğrulandı.
 
-Önceki doğrulamada resmi dört haber RSS’i, Sözcü fiyatları ve NTV lig/BIST verileri ayrıştırıldı. Bulut PHP DNS pinleme kontrolünde dış alan adları çözülemedi; koruma kapatılmadı. Hosting bağlantıları ayrıca test edilmelidir. Gerçek OpenAI model erişimi/ücretli ajans çağrısı ve canlı hosting dağıtımı yapılmadı. Önceki ZIP’ler downloads klasöründe korunur; eski yamaları 3.3 dosyalarının üzerine uygulamayın.
+Önceki doğrulamada resmi dört haber RSS’i, Sözcü fiyatları ve NTV lig/BIST verileri ayrıştırıldı. Bulut PHP DNS pinleme kontrolünde dış alan adları çözülemedi; koruma kapatılmadı. Hosting bağlantıları ayrıca test edilmelidir. Gerçek OpenAI model erişimi/ücretli ajans çağrısı ve canlı hosting dağıtımı yapılmadı. Önceki ZIP’ler downloads klasöründe korunur; eski yamaları 3.3.1 dosyalarının üzerine uygulamayın.
