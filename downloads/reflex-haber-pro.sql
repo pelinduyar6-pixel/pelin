@@ -1,4 +1,4 @@
--- Reflex Haber Pro 3.3.4 | 10 Ekim 2026
+-- Reflex Haber Pro 3.4.0 | 10 Ekim 2026
 -- MySQL/MariaDB tablo yapisi. phpMyAdmin'de kendi veritabaninizi secip ice aktarin.
 -- Tablo/kayit silmez. Yonetici, parola, API anahtari ve ornek haber icermez.
 -- Ice aktarma sonrasi /kurulum.php uzerinden yonetici hesabinizi olusturun.
