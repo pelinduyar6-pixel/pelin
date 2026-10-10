@@ -1,12 +1,14 @@
-# Reflex Haber Pro 3.4.0 · 8 Tema
+# Reflex Haber Pro 3.4.1 · 8 Tema
+
+Pro 3.4.1, güncel sürüm işaretine rağmen eksik yardımcı tablo veya güncelleme sütunu nedeniyle panelin hata vermesini düzeltir. Ekrandaki hata kodu güvenli sunucu kaydıyla eşleşir. Canlı sitedeki kesin hata nedeni henüz doğrulanmadı.
 
 PHP 8.1+ haber sitesi ve Türkçe yönetim merkezi. MySQL/MariaDB veya SQLite; Composer/Node derlemesi gerekmez.
 
-- **[Mevcut Pro 3.0–3.3.4 için güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-4-0-tam-guncelleme.zip)**
-- **[Yeni cPanel için SQL içeren tam kurulum ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-4-0-cpanel-sql.zip)**
+- **[Mevcut Pro 3.0–3.4.0 için güncelleme ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-4-1-tam-guncelleme.zip)**
+- **[Yeni cPanel için SQL içeren tam kurulum ZIP](https://github.com/pelinduyar6-pixel/pelin/raw/refs/heads/main/downloads/reflex-haber-pro-3-4-1-cpanel-sql.zip)**
 - [Ayrı kurulum SQL ZIP](downloads/reflex-haber-sql.zip) · [SQL dosyası](downloads/reflex-haber-pro.sql)
 
-[Güncelleme adımları](GUNCELLEME-3-4-0.md) · [Yeni cPanel kurulumu](CPANEL-KURULUM-3-4-0.md) · [Doğrulama](DOGRULAMA-3-4-0.md) · [SHA-256](downloads/reflex-haber-pro-3-4-0-tam-guncelleme.sha256)
+[Güncelleme adımları](GUNCELLEME-3-4-1.md) · [Yeni cPanel kurulumu](CPANEL-KURULUM-3-4-1.md) · [Doğrulama](DOGRULAMA-3-4-1.md) · [SHA-256](downloads/reflex-haber-pro-3-4-1-tam-guncelleme.sha256)
 
 Tema 1–4 korunur. **Tema 5: Medyabar**, **Tema 6: İmza Gazetesi**, **Tema 7: Kulga**, **Tema 8: EsenHaber Demo 3** panelden seçilebilir. Her tema aynı haber, kategori, reklam ve sosyal medya ayarlarını kullanır. Yeni düzenlerin masaüstü ve mobil ekranları [önizlemeler](previews/reflex-v340) içindedir.
 
@@ -22,7 +24,7 @@ Türkiye Gündemi ana kategori seçimi, değişken kategori düzenleri, Teknoloj
 
 Yeni site: tam ZIP’i yeni web köküne açın. İsterseniz `database/reflex-haber-pro.sql` dosyasını boş phpMyAdmin veritabanına aktarın, ardından `/kurulum.php` ile kendi yönetici hesabınızı oluşturun. SQL 25 tablo tanımı içerir; haber/veri veya kullanıcı parolası içermez.
 
-Mevcut site: tam güncelleme ZIP’ini mevcut köke açın; **SQL’i tekrar içe aktarmayın veya kurulum başlatmayın**. Mevcut `.env`, `storage`, hesaplar, kategori ilişkileri, API anahtarları ve uploads korunur. Panelde **Sistem Kontrolü → 3.3.4 → Güncelleme dosyaları eksiksiz** kontrolünü yapın. Eski 104 KB güncelleme paketini kullanmayın.
+Mevcut site: tam güncelleme ZIP’ini mevcut köke açın; **SQL’i tekrar içe aktarmayın veya kurulum başlatmayın**. Mevcut `.env`, `storage`, hesaplar, kategori ilişkileri, API anahtarları ve uploads korunur. Panelde **Sistem Kontrolü → 3.4.1 → Güncelleme dosyaları eksiksiz** kontrolünü yapın. Eski 104 KB güncelleme paketini kullanmayın.
 
 Eski site arşivi: yeni kurulumdan sonra **Veri Taşıma** ekranına veri içeren SQL ve ayrı uploads klasörünü yükleyin, alan/kategorileri eşleştirin, önizleyip taslak aktarın. Boş eski kategori ID’si korunur; çakışmada mevcut kategori ezilmez. Eski hesaplar/parolalar taşınmaz.
 
